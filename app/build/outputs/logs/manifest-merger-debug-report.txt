@@ -1,0 +1,149 @@
+-- Merging decision tree log ---
+manifest
+ADDED from D:\bluetoothscantest\app\src\main\AndroidManifest.xml:2:1-45:12
+INJECTED from D:\bluetoothscantest\app\src\main\AndroidManifest.xml:2:1-45:12
+INJECTED from D:\bluetoothscantest\app\src\main\AndroidManifest.xml:2:1-45:12
+INJECTED from D:\bluetoothscantest\app\src\main\AndroidManifest.xml:2:1-45:12
+MERGED from [com.android.support:support-v4:25.3.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-v4-25.3.1.aar\56d3ff6f4037cb16d41ab57078bcecbe\AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-fragment:25.3.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-fragment-25.3.1.aar\6fe8cbf9ecaf39786bc02d4af5d32416\AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-media-compat:25.3.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-media-compat-25.3.1.aar\8551efaf2747d77b1042e4a59fdd6d4b\AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-core-utils:25.3.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-core-utils-25.3.1.aar\2ac6da2ba0a34c56c701a1e0ec20a330\AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-core-ui:25.3.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-core-ui-25.3.1.aar\4801452f57f67f1f7c6ff57b809ff922\AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-compat:25.3.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-compat-25.3.1.aar\2319c856f9c218df577797f53178c60b\AndroidManifest.xml:17:1-31:12
+INJECTED from D:\bluetoothscantest\app\src\main\AndroidManifest.xml:2:1-45:12
+INJECTED from D:\bluetoothscantest\app\src\main\AndroidManifest.xml:2:1-45:12
+INJECTED from D:\bluetoothscantest\app\src\main\AndroidManifest.xml:2:1-45:12
+	package
+		ADDED from D:\bluetoothscantest\app\src\main\AndroidManifest.xml:3:5-44
+		INJECTED from D:\bluetoothscantest\app\src\main\AndroidManifest.xml
+		INJECTED from D:\bluetoothscantest\app\src\main\AndroidManifest.xml
+	android:versionName
+		ADDED from D:\bluetoothscantest\app\src\main\AndroidManifest.xml:5:5-30
+		INJECTED from D:\bluetoothscantest\app\src\main\AndroidManifest.xml
+		INJECTED from D:\bluetoothscantest\app\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from D:\bluetoothscantest\app\src\main\AndroidManifest.xml:2:11-69
+	android:versionCode
+		ADDED from D:\bluetoothscantest\app\src\main\AndroidManifest.xml:4:5-28
+		INJECTED from D:\bluetoothscantest\app\src\main\AndroidManifest.xml
+		INJECTED from D:\bluetoothscantest\app\src\main\AndroidManifest.xml
+uses-sdk
+ADDED from D:\bluetoothscantest\app\src\main\AndroidManifest.xml:7:5-9:41
+INJECTED from D:\bluetoothscantest\app\src\main\AndroidManifest.xml:7:5-9:41
+INJECTED from D:\bluetoothscantest\app\src\main\AndroidManifest.xml:7:5-9:41
+MERGED from [com.android.support:support-v4:25.3.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-v4-25.3.1.aar\56d3ff6f4037cb16d41ab57078bcecbe\AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-v4:25.3.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-v4-25.3.1.aar\56d3ff6f4037cb16d41ab57078bcecbe\AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-fragment:25.3.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-fragment-25.3.1.aar\6fe8cbf9ecaf39786bc02d4af5d32416\AndroidManifest.xml:21:5-23:60
+MERGED from [com.android.support:support-fragment:25.3.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-fragment-25.3.1.aar\6fe8cbf9ecaf39786bc02d4af5d32416\AndroidManifest.xml:21:5-23:60
+MERGED from [com.android.support:support-media-compat:25.3.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-media-compat-25.3.1.aar\8551efaf2747d77b1042e4a59fdd6d4b\AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-media-compat:25.3.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-media-compat-25.3.1.aar\8551efaf2747d77b1042e4a59fdd6d4b\AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-core-utils:25.3.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-core-utils-25.3.1.aar\2ac6da2ba0a34c56c701a1e0ec20a330\AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:support-core-utils:25.3.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-core-utils-25.3.1.aar\2ac6da2ba0a34c56c701a1e0ec20a330\AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:support-core-ui:25.3.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-core-ui-25.3.1.aar\4801452f57f67f1f7c6ff57b809ff922\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-core-ui:25.3.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-core-ui-25.3.1.aar\4801452f57f67f1f7c6ff57b809ff922\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-compat:25.3.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-compat-25.3.1.aar\2319c856f9c218df577797f53178c60b\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-compat:25.3.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-compat-25.3.1.aar\2319c856f9c218df577797f53178c60b\AndroidManifest.xml:21:5-23:58
+INJECTED from D:\bluetoothscantest\app\src\main\AndroidManifest.xml:7:5-9:41
+INJECTED from D:\bluetoothscantest\app\src\main\AndroidManifest.xml:7:5-9:41
+	tools:overrideLibrary
+		ADDED from [com.android.support:support-v4:25.3.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-v4-25.3.1.aar\56d3ff6f4037cb16d41ab57078bcecbe\AndroidManifest.xml:23:9-51
+	android:targetSdkVersion
+		ADDED from D:\bluetoothscantest\app\src\main\AndroidManifest.xml:9:9-38
+		INJECTED from D:\bluetoothscantest\app\src\main\AndroidManifest.xml
+		INJECTED from D:\bluetoothscantest\app\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		ADDED from D:\bluetoothscantest\app\src\main\AndroidManifest.xml:8:9-35
+		INJECTED from D:\bluetoothscantest\app\src\main\AndroidManifest.xml
+		INJECTED from D:\bluetoothscantest\app\src\main\AndroidManifest.xml
+uses-permission#android.permission.BLUETOOTH_ADMIN
+ADDED from D:\bluetoothscantest\app\src\main\AndroidManifest.xml:10:2-70
+	android:name
+		ADDED from D:\bluetoothscantest\app\src\main\AndroidManifest.xml:10:19-68
+uses-permission#android.permission.BLUETOOTH
+ADDED from D:\bluetoothscantest\app\src\main\AndroidManifest.xml:11:5-67
+	android:name
+		ADDED from D:\bluetoothscantest\app\src\main\AndroidManifest.xml:11:22-65
+uses-permission#android.permission.BLUETOOTH_PRIVILEGED
+ADDED from D:\bluetoothscantest\app\src\main\AndroidManifest.xml:12:5-79
+	android:name
+		ADDED from D:\bluetoothscantest\app\src\main\AndroidManifest.xml:12:22-76
+uses-permission#android.permission.ACCESS_COARSE_LOCATION
+ADDED from D:\bluetoothscantest\app\src\main\AndroidManifest.xml:14:5-80
+	android:name
+		ADDED from D:\bluetoothscantest\app\src\main\AndroidManifest.xml:14:22-78
+uses-permission#android.permission.ACCESS_FINE_LOCATION
+ADDED from D:\bluetoothscantest\app\src\main\AndroidManifest.xml:15:5-78
+	android:name
+		ADDED from D:\bluetoothscantest\app\src\main\AndroidManifest.xml:15:22-76
+application
+ADDED from D:\bluetoothscantest\app\src\main\AndroidManifest.xml:22:5-43:19
+MERGED from [com.android.support:support-v4:25.3.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-v4-25.3.1.aar\56d3ff6f4037cb16d41ab57078bcecbe\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-v4:25.3.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-v4-25.3.1.aar\56d3ff6f4037cb16d41ab57078bcecbe\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-fragment:25.3.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-fragment-25.3.1.aar\6fe8cbf9ecaf39786bc02d4af5d32416\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-fragment:25.3.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-fragment-25.3.1.aar\6fe8cbf9ecaf39786bc02d4af5d32416\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-media-compat:25.3.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-media-compat-25.3.1.aar\8551efaf2747d77b1042e4a59fdd6d4b\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-media-compat:25.3.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-media-compat-25.3.1.aar\8551efaf2747d77b1042e4a59fdd6d4b\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-core-utils:25.3.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-core-utils-25.3.1.aar\2ac6da2ba0a34c56c701a1e0ec20a330\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-core-utils:25.3.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-core-utils-25.3.1.aar\2ac6da2ba0a34c56c701a1e0ec20a330\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-core-ui:25.3.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-core-ui-25.3.1.aar\4801452f57f67f1f7c6ff57b809ff922\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-core-ui:25.3.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-core-ui-25.3.1.aar\4801452f57f67f1f7c6ff57b809ff922\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-compat:25.3.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-compat-25.3.1.aar\2319c856f9c218df577797f53178c60b\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-compat:25.3.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-compat-25.3.1.aar\2319c856f9c218df577797f53178c60b\AndroidManifest.xml:29:5-20
+	android:label
+		ADDED from D:\bluetoothscantest\app\src\main\AndroidManifest.xml:25:9-41
+	android:icon
+		ADDED from D:\bluetoothscantest\app\src\main\AndroidManifest.xml:24:9-45
+	android:allowBackup
+		ADDED from D:\bluetoothscantest\app\src\main\AndroidManifest.xml:23:9-35
+	android:theme
+		ADDED from D:\bluetoothscantest\app\src\main\AndroidManifest.xml:26:9-40
+activity#com.example.bluetoothscantest.MainActivity
+ADDED from D:\bluetoothscantest\app\src\main\AndroidManifest.xml:27:9-30:48
+	android:screenOrientation
+		ADDED from D:\bluetoothscantest\app\src\main\AndroidManifest.xml:29:13-49
+	android:label
+		ADDED from D:\bluetoothscantest\app\src\main\AndroidManifest.xml:30:13-45
+	android:name
+		ADDED from D:\bluetoothscantest\app\src\main\AndroidManifest.xml:28:13-70
+activity#com.example.bluetoothscantest.BluetoothOperateActivity
+ADDED from D:\bluetoothscantest\app\src\main\AndroidManifest.xml:31:9-33:47
+	android:screenOrientation
+		ADDED from D:\bluetoothscantest\app\src\main\AndroidManifest.xml:32:13-49
+	android:label
+		ADDED from D:\bluetoothscantest\app\src\main\AndroidManifest.xml:33:13-45
+	android:name
+		ADDED from D:\bluetoothscantest\app\src\main\AndroidManifest.xml:31:19-88
+activity#com.example.bluetoothscantest.BluetoothScanActivity
+ADDED from D:\bluetoothscantest\app\src\main\AndroidManifest.xml:34:9-42:20
+	android:screenOrientation
+		ADDED from D:\bluetoothscantest\app\src\main\AndroidManifest.xml:35:13-49
+	android:label
+		ADDED from D:\bluetoothscantest\app\src\main\AndroidManifest.xml:36:13-45
+	android:name
+		ADDED from D:\bluetoothscantest\app\src\main\AndroidManifest.xml:34:19-85
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from D:\bluetoothscantest\app\src\main\AndroidManifest.xml:37:13-41:29
+action#android.intent.action.MAIN
+ADDED from D:\bluetoothscantest\app\src\main\AndroidManifest.xml:38:17-69
+	android:name
+		ADDED from D:\bluetoothscantest\app\src\main\AndroidManifest.xml:38:25-66
+category#android.intent.category.LAUNCHER
+ADDED from D:\bluetoothscantest\app\src\main\AndroidManifest.xml:40:17-77
+	android:name
+		ADDED from D:\bluetoothscantest\app\src\main\AndroidManifest.xml:40:27-74
+meta-data#android.support.VERSION
+ADDED from [com.android.support:support-v4:25.3.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-v4-25.3.1.aar\56d3ff6f4037cb16d41ab57078bcecbe\AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-fragment:25.3.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-fragment-25.3.1.aar\6fe8cbf9ecaf39786bc02d4af5d32416\AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-fragment:25.3.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-fragment-25.3.1.aar\6fe8cbf9ecaf39786bc02d4af5d32416\AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-media-compat:25.3.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-media-compat-25.3.1.aar\8551efaf2747d77b1042e4a59fdd6d4b\AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-media-compat:25.3.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-media-compat-25.3.1.aar\8551efaf2747d77b1042e4a59fdd6d4b\AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-core-utils:25.3.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-core-utils-25.3.1.aar\2ac6da2ba0a34c56c701a1e0ec20a330\AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-core-utils:25.3.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-core-utils-25.3.1.aar\2ac6da2ba0a34c56c701a1e0ec20a330\AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-core-ui:25.3.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-core-ui-25.3.1.aar\4801452f57f67f1f7c6ff57b809ff922\AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-core-ui:25.3.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-core-ui-25.3.1.aar\4801452f57f67f1f7c6ff57b809ff922\AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-compat:25.3.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-compat-25.3.1.aar\2319c856f9c218df577797f53178c60b\AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-compat:25.3.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-compat-25.3.1.aar\2319c856f9c218df577797f53178c60b\AndroidManifest.xml:25:5-27:34
+	android:value
+		ADDED from [com.android.support:support-v4:25.3.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-v4-25.3.1.aar\56d3ff6f4037cb16d41ab57078bcecbe\AndroidManifest.xml:27:9-31
+	android:name
+		ADDED from [com.android.support:support-v4:25.3.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-v4-25.3.1.aar\56d3ff6f4037cb16d41ab57078bcecbe\AndroidManifest.xml:26:9-47
