@@ -22,6 +22,7 @@ import android.bluetooth.BluetoothProfile;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -52,7 +53,7 @@ public class BluetoothOperateActivity extends Activity implements View.OnClickLi
     //盖章总次数
     private int stampCount = 0;
     private Button btnHand, btnStart, btnSuperUser, btnGenUser, btnUpdatePwd, btnUpdateKeyPwd;
-    private Button btnGetMac, btnReset, btnClose, btnElectric, lock_seal, delete_fingerprint, set_fingerprint, select_fingerprint;
+    private Button btnReset, btnClose, btnElectric, lock_seal, delete_fingerprint, set_fingerprint, select_fingerprint;
     private Button clear_bt, press_time;
     private EditText showET;
     byte[] bytes;
@@ -105,7 +106,6 @@ public class BluetoothOperateActivity extends Activity implements View.OnClickLi
         btnGenUser = (Button) findViewById(R.id.btnGenUser);
         btnUpdatePwd = (Button) findViewById(R.id.btnUpdatePwd);
         btnUpdateKeyPwd = (Button) findViewById(R.id.btnUpdateKeyPwd);
-        btnGetMac = (Button) findViewById(R.id.btnGetMac);
         btnReset = (Button) findViewById(R.id.btnReset);
         btnClose = (Button) findViewById(R.id.btnClose);
         btnElectric = (Button) findViewById(R.id.btnElectric);
@@ -125,7 +125,6 @@ public class BluetoothOperateActivity extends Activity implements View.OnClickLi
         btnGenUser.setOnClickListener(this);
         btnUpdatePwd.setOnClickListener(this);
         btnUpdateKeyPwd.setOnClickListener(this);
-        btnGetMac.setOnClickListener(this);
         btnReset.setOnClickListener(this);
         btnClose.setOnClickListener(this);
         btnElectric.setOnClickListener(this);
@@ -165,10 +164,6 @@ public class BluetoothOperateActivity extends Activity implements View.OnClickLi
                 case R.id.btnUpdateKeyPwd:
                     sendDataToBlue("KPASSWD=123456333666");
                     showData("KPASSWD=123456333666");
-                    break;
-                case R.id.btnGetMac:
-                    sendDataToBlue("ADSS");
-                    showData("ADSS");
                     break;
                 case R.id.btnReset:   //重置
                     sendDataToBlue("RESET");
@@ -250,6 +245,10 @@ public class BluetoothOperateActivity extends Activity implements View.OnClickLi
                     sendDataToBlue(new DataProtocol(CommonUtil.SELECT, selectB));
                     showData(bytes);
                     break;
+                case R.id.clear_bt:
+                    showET.getText().clear();
+                    str = "";
+                    break;
             }
         }
 
@@ -321,7 +320,7 @@ public class BluetoothOperateActivity extends Activity implements View.OnClickLi
                             case (byte) 0xA0:
                                 if (buffer[3] == 0) {
                                     receiveData(buffer);
-                                    setUploadHistory(buffer);
+                                    setUploadHistory(buffer);//设置上传历史
                                 } else if (buffer[3] == integer) {
                                     receiveData(buffer);
                                 }
@@ -347,6 +346,7 @@ public class BluetoothOperateActivity extends Activity implements View.OnClickLi
                                 if (isStpoped) {
                                     return;
                                 }
+                                receiveData(buffer);
                                 getReceive(buffer);
                                 break;
                             case (byte) 0xA4:
@@ -405,7 +405,7 @@ public class BluetoothOperateActivity extends Activity implements View.OnClickLi
                                 receiveData(buffer);
                                 break;
                             case (byte) 0xAE:
-                   /*             //判断如果数据长度大于6,则为数据包,否则继续判断
+                     /*         //判断如果数据长度大于6,则为数据包,否则继续判断
                                 if (buffer.length > 6) {
                                     //截取数据域,存放byte数组到集合
                                     byte[] historyByte = DataTrans.subByte(buffer, 5, buffer.length - 6);
@@ -426,8 +426,17 @@ public class BluetoothOperateActivity extends Activity implements View.OnClickLi
                                 } else {
                                     //收到总包再响应给印章
                                     sendDataToBlue(buffer);
+                                }*/
+                                receiveData(buffer);
+                                needGetTime = restCount - num > num ? num : restCount - num;
+                                if (restCount - num > 0) {
+                                    restCount = restCount - num;
+                                    startGetHistory();
+                                } else {
+                                    // 表示已经全部获取完成，清空集合，停止倒计时，抛出获取成功的回调
+                                    onStop();
                                 }
-                                break;*/
+                                break;
                             case (byte) 0xAF:
                                 receiveData(buffer);
                                 break;
@@ -577,10 +586,8 @@ public class BluetoothOperateActivity extends Activity implements View.OnClickLi
     private void setUploadHistory(byte[] bytes) {
         //截取剩余次数
         byte[] restTime = DataTrans.subByte(bytes, 6, 2);
-        for (int i = 0; i < restTime.length; i++) {
-            restCount += restTime[i];
-        }
-        restCount = (byte) restCount;
+        restCount = bytesToInt(restTime,0);
+
         //判断有无剩余次数
         if (bytes != null && restCount > 0) {
             showUploadDialog();
@@ -757,24 +764,17 @@ public class BluetoothOperateActivity extends Activity implements View.OnClickLi
     private void uploadSuccess() {
         onStop();
         // 发送AE给印章
-        byte[] uploadTrue = new byte[]{0};
+        byte[] uploadTrue = new byte[]{(byte) needGetTime};
         sendDataToBlue(new DataProtocol(CommonUtil.UPLOAD, uploadTrue));
-        // 获取下一个5条
-        needGetTime = restCount - num > num ? num : restCount - num;
-        if (restCount - num > 0) {
-            restCount = restCount - num;
-            startGetHistory();
-        } else {
-            // 表示已经全部获取完成，清空集合，停止倒计时，抛出获取成功的回调
-            onStop();
-        }
+        showData(bytes);
+        // 在接收处接到AE就获取下一个5条
+
     }
 
     //上传到服务器失败
     private void uploadFail() {
         onStop();
     }
-
 
     //验证接收到的校验和
     private boolean check(byte[] bytes) {
