@@ -128,4 +128,15 @@ public class DataTrans {
         Long l = Long.parseLong(string,16);
         return l;
     }
+
+    /**
+     * byte数组中取int数值，本方法适用于(低位在前，高位在后)的顺序
+     */
+    public static int bytesToInt(byte[] src, int offset) {
+        int value = 0;
+        for (int i = 0; i < src.length; i++) {
+            value |= ((src[offset + i] & 0xFF) << i * 8);
+        }
+        return value;
+    }
 }

@@ -22,6 +22,7 @@ import android.bluetooth.BluetoothProfile;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -52,9 +53,9 @@ public class BluetoothOperateActivity extends Activity implements View.OnClickLi
     private TextView tv = null;
     //盖章总次数
     private int stampCount = 0;
-    private Button btnHand, btnStart, btnSuperUser, btnGenUser, btnUpdatePwd, btnUpdateKeyPwd;
+    private Button btnHand, btnStart, btnSuperUser, btnUpdatePwd, btnUpdateKeyPwd;
     private Button btnReset, btnClose, btnElectric, lock_seal, delete_fingerprint, set_fingerprint, select_fingerprint;
-    private Button clear_bt, press_time;
+    private Button clear_bt, press_time, press_password, select_press_time, change_press_power, delete_press_pwd;
     private EditText showET;
     byte[] bytes;
     private String str = "";
@@ -63,7 +64,7 @@ public class BluetoothOperateActivity extends Activity implements View.OnClickLi
     //总的剩余次数
     int restCount = 0;
     //每次固定上传次数
-    int num = 5;
+    int num = 1;
     //记录序号
     int orderNum;
     int maxTime = 10000; //最大时间
@@ -103,7 +104,6 @@ public class BluetoothOperateActivity extends Activity implements View.OnClickLi
         btnHand = (Button) findViewById(R.id.btnHand);
         btnStart = (Button) findViewById(R.id.btnStart);
         btnSuperUser = (Button) findViewById(R.id.btnSuperUser);
-        btnGenUser = (Button) findViewById(R.id.btnGenUser);
         btnUpdatePwd = (Button) findViewById(R.id.btnUpdatePwd);
         btnUpdateKeyPwd = (Button) findViewById(R.id.btnUpdateKeyPwd);
         btnReset = (Button) findViewById(R.id.btnReset);
@@ -116,13 +116,16 @@ public class BluetoothOperateActivity extends Activity implements View.OnClickLi
         showET = (EditText) findViewById(R.id.showET);
         clear_bt = (Button) findViewById(R.id.clear_bt);
         press_time = (Button) findViewById(R.id.press_time);
+        press_password = (Button) findViewById(R.id.press_password);
+        select_press_time = (Button) findViewById(R.id.select_press_time);
+        change_press_power = (Button) findViewById(R.id.change_press_power);
+        delete_press_pwd = (Button) findViewById(R.id.delete_press_pwd);
     }
 
     public void setListener() {
         btnHand.setOnClickListener(this);
         btnStart.setOnClickListener(this);
         btnSuperUser.setOnClickListener(this);
-        btnGenUser.setOnClickListener(this);
         btnUpdatePwd.setOnClickListener(this);
         btnUpdateKeyPwd.setOnClickListener(this);
         btnReset.setOnClickListener(this);
@@ -134,6 +137,10 @@ public class BluetoothOperateActivity extends Activity implements View.OnClickLi
         select_fingerprint.setOnClickListener(this);
         clear_bt.setOnClickListener(this);
         press_time.setOnClickListener(this);
+        press_password.setOnClickListener(this);
+        select_press_time.setOnClickListener(this);
+        delete_press_pwd.setOnClickListener(this);
+        change_press_power.setOnClickListener(this);
     }
 
     //按钮点击
@@ -152,10 +159,6 @@ public class BluetoothOperateActivity extends Activity implements View.OnClickLi
                 case R.id.btnSuperUser:
                     sendDataToBlue("ADMIN1");
                     showData("ADMIN1");
-                    break;
-                case R.id.btnGenUser:
-                    sendDataToBlue("ADMIN0");
-                    showData("ADMIN0");
                     break;
                 case R.id.btnUpdatePwd:
                     sendDataToBlue("SPASSWD=123456333666");
@@ -194,7 +197,8 @@ public class BluetoothOperateActivity extends Activity implements View.OnClickLi
                     break;
                 case R.id.btnUpdateKeyPwd:
                     //修改按键密码
-                    byte[] keyPwd = new byte[]{1, 2, 3, 4, 5, 6, 6, 5, 4, 3, 2, 1};
+                    byte[] pwdCode = DataTrans.intToByteArray(1, true);
+                    byte[] keyPwd = new byte[]{pwdCode[0], pwdCode[1], pwdCode[2], pwdCode[3], 1, 2, 3, 4, 5, 6, 6, 5, 4, 3, 2, 1};
                     sendDataToBlue(new DataProtocol(CommonUtil.UPDATEKEPWD, keyPwd));
                     showData(bytes);
                     break;
@@ -207,6 +211,11 @@ public class BluetoothOperateActivity extends Activity implements View.OnClickLi
                 case R.id.press_time:  //长按时间
                     byte[] press_time = new byte[]{5};
                     sendDataToBlue(new DataProtocol(CommonUtil.PRESSTIME, press_time));
+                    showData(bytes);
+                    break;
+                case R.id.select_press_time: //查询长按时间
+                    byte[] select_press_time = new byte[]{0};
+                    sendDataToBlue(new DataProtocol(CommonUtil.SELECTPRESSTIME, select_press_time));
                     showData(bytes);
                     break;
                 case R.id.btnClose:
@@ -249,6 +258,21 @@ public class BluetoothOperateActivity extends Activity implements View.OnClickLi
                     showET.getText().clear();
                     str = "";
                     break;
+                case R.id.press_password:    //添加按键密码和权限
+                    sendDataToBlue(new DataProtocol(CommonUtil.ADDPRESSPWD, CommonUtil.addPressPwd()));
+                    showData(bytes);
+                    break;
+                case R.id.change_press_power:  //修改按键密码权限
+                    sendDataToBlue(new DataProtocol(CommonUtil.CHANGEPWDPOWER, CommonUtil.changePwdPower()));
+                    showData(bytes);
+                    break;
+                case R.id.delete_press_pwd:  //删除按键密码
+                    byte[] deletePwdCode = DataTrans.intToByteArray(1, true);
+                    byte[] deletePrePwd = new byte[]{deletePwdCode[0], deletePwdCode[1], deletePwdCode[2], deletePwdCode[3]};
+                    sendDataToBlue(new DataProtocol(CommonUtil.DELETEPRESSPWD, deletePrePwd));
+                    showData(bytes);
+                    break;
+
             }
         }
 
@@ -267,6 +291,7 @@ public class BluetoothOperateActivity extends Activity implements View.OnClickLi
                         // 已连接状态
                         if (newState == BluetoothProfile.STATE_CONNECTED) {
                             gatt.discoverServices();
+                            Log.e("ATG", "成功连接发现服务。。。。。。。。。。");
                         }
                         // 已断开状态
                         else if (newState == BluetoothProfile.STATE_DISCONNECTED) {
@@ -341,6 +366,7 @@ public class BluetoothOperateActivity extends Activity implements View.OnClickLi
                                 break;
                             case (byte) 0xA2:
                                 receiveData(buffer);
+                                sendSealHistory(); //发送盖章记录上传
                                 break;
                             case (byte) 0xA3:  //通知印章上传盖章历史
                                 if (isStpoped) {
@@ -355,6 +381,15 @@ public class BluetoothOperateActivity extends Activity implements View.OnClickLi
                                 } else if (buffer[3] == integer) {
                                     receiveData(buffer);
                                 }
+                                break;
+                            case (byte) 0xB0:    //修改按键密码
+                                receiveData(buffer);
+                                break;
+                            case (byte) 0xB1:    //修改按键密码权限
+                                receiveData(buffer);
+                                break;
+                            case (byte) 0xB2:    //删除按键密码
+                                receiveData(buffer);
                                 break;
                             case (byte) 0xA5:
                                 if (buffer[3] == 0) {
@@ -371,11 +406,12 @@ public class BluetoothOperateActivity extends Activity implements View.OnClickLi
                                 }
                                 break;
                             case (byte) 0xA7:
-                                if (buffer[3] == 0) {
+                            /*    if (buffer[3] == 0) {
                                     receiveData(buffer);
                                 } else if (buffer[3] == DataTrans.integer("80")) {
                                     receiveData(buffer);
-                                }
+                                }*/
+                                receiveData(buffer);
                                 break;
                             case (byte) 0xA8:
                                 receiveData(buffer);
@@ -504,6 +540,7 @@ public class BluetoothOperateActivity extends Activity implements View.OnClickLi
     private void disConnect() {
         if (blueGatt != null) {
             blueGatt.disconnect();
+            blueGatt.close();
         }
     }
 
@@ -578,6 +615,15 @@ public class BluetoothOperateActivity extends Activity implements View.OnClickLi
     }
 
     /**
+     * 盖章记录上传
+     */
+    private void sendSealHistory() {
+        byte[] sendSealHistory = new byte[]{0};
+        sendDataToBlue(new DataProtocol(CommonUtil.SEALHISTORYUPLOAD, sendSealHistory));
+        showData(bytes);
+    }
+
+    /**
      * 上传盖章历史记录
      *
      * @param bytes
@@ -586,7 +632,7 @@ public class BluetoothOperateActivity extends Activity implements View.OnClickLi
     private void setUploadHistory(byte[] bytes) {
         //截取剩余次数
         byte[] restTime = DataTrans.subByte(bytes, 6, 2);
-        restCount = bytesToInt(restTime,0);
+        restCount = DataTrans.bytesToInt(restTime, 0);
 
         //判断有无剩余次数
         if (bytes != null && restCount > 0) {
@@ -660,8 +706,8 @@ public class BluetoothOperateActivity extends Activity implements View.OnClickLi
                     byte[] timeByte = DataTrans.subByte(subByte, 10, 6); //获取盖章时间
 
                     Map<String, String> map = new HashMap<>();
-                    map.put("startByte", String.valueOf(bytesToInt(startByte, 0)));
-                    map.put("sealByte", String.valueOf(bytesToInt(sealByte, 0)));
+                    map.put("startByte", String.valueOf(DataTrans.bytesToInt(startByte, 0)));
+                    map.put("sealByte", String.valueOf(DataTrans.bytesToInt(sealByte, 0)));
                     map.put("timeByte", bytesHexString(timeByte));
                     mapList.add(map);
                 }
@@ -675,17 +721,6 @@ public class BluetoothOperateActivity extends Activity implements View.OnClickLi
             // 将倒计时时间归零，重新开始倒计时
             currentCountDown = 0;
         }
-    }
-
-    /**
-     * byte数组中取int数值，本方法适用于(低位在前，高位在后)的顺序
-     */
-    public static int bytesToInt(byte[] src, int offset) {
-        int value = 0;
-        for (int i = 0; i < src.length; i++) {
-            value |= ((src[offset + i] & 0xFF) << i * 8);
-        }
-        return value;
     }
 
     //byte转string
@@ -718,13 +753,24 @@ public class BluetoothOperateActivity extends Activity implements View.OnClickLi
     }
 
     @Override
+    protected void onDestroy() {
+        disConnect();
+        Log.e("TAG","断开连接。。。。。。。。。。");
+        super.onDestroy();
+    }
+
+    @Override
     protected void onStop() {
         isStpoped = true;
         super.onStop();
         historyList.clear();
         //销毁定时器
-        timer.cancel();
-        task.cancel();
+        if (timer != null) {
+            timer.cancel();
+        }
+        if (task != null){
+            task.cancel();
+        }
     }
 
     /**

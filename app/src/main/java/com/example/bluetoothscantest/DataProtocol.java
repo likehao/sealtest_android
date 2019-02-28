@@ -3,6 +3,9 @@ package com.example.bluetoothscantest;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 数据帧结构
+ */
 public class DataProtocol {
     public DataProtocol(byte type, byte[] data) {
         this.type = type;

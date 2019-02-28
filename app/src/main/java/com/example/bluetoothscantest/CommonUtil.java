@@ -14,13 +14,29 @@ public class CommonUtil{
      */
     public static final byte START = (byte) 0xA1;
     /**
+     * 盖章记录上传
+     */
+    public static final byte SEALHISTORYUPLOAD = (byte) 0xA2;
+    /**
      * 通知印章上传盖章历史记录
      */
     public static final byte NOTIFYHISTORYUPLOAD = (byte) 0xA3;
     /**
      * 修改按键密码
      */
-    public static final byte UPDATEKEPWD = (byte) 0xA4;
+    public static final byte UPDATEKEPWD = (byte) 0xB0;
+    /**
+     * 修改按键密码权限
+     */
+    public static final byte CHANGEPWDPOWER = (byte) 0xB1;
+    /**
+     * 删除按键密码
+     */
+    public static final byte DELETEPRESSPWD = (byte) 0xB2;
+    /**
+     * 添加按键密码和权限
+     */
+    public static final byte ADDPRESSPWD = (byte) 0xA4;
     /**
      * 重置
      */
@@ -134,4 +150,24 @@ public class CommonUtil{
         return setFingerprint;
     }
 
+    /**
+     * 添加按键密码和权限
+     * @return
+     */
+    public static byte[] addPressPwd(){
+        byte[] time = DataTrans.shortToByteArray((short) 100,true);
+        byte[] addPressPwd = new byte[]{ 1,2,3,4,5,6,time[0], time[1], (byte) 2019 ,9, 9, 19, 19, 19};
+        return addPressPwd;
+    }
+
+    /**
+     * 修改按键密码权限
+     * @return
+     */
+    public static byte[] changePwdPower(){
+        byte[] changePwdCode = DataTrans.intToByteArray(1,true);
+        byte[] time = DataTrans.shortToByteArray((short) 100,true);
+        byte[] changePrePow = new byte[]{changePwdCode[0],changePwdCode[1],changePwdCode[2],changePwdCode[3],time[0],time[1],(byte) 2019 ,9, 9, 19, 19, 19};
+        return changePrePow;
+    }
 }

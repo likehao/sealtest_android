@@ -29,17 +29,14 @@
         android:debuggable="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
+        android:testOnly="true"
         android:theme="@style/AppTheme" >
-        <activity
-            android:name="com.example.bluetoothscantest.MainActivity"
-            android:label="@string/app_name"
-            android:screenOrientation="portrait" />
         <activity
             android:name="com.example.bluetoothscantest.BluetoothOperateActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.example.bluetoothscantest.BluetoothScanActivity"
+            android:name="com.example.bluetoothscantest.MainActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait" >
             <intent-filter>
