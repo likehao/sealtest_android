@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\sealtest_android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values\\values.xml",
+            "outputFile": "C:\\Users\\Administrator\\Desktop\\sealtest_android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values\\values.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-1\\files-1.1\\SmartRefreshHeader-1.1.0-alpha-18.aar\\7c38a20105a979320b10a2aa8a9527f6\\res\\values\\values.xml",
@@ -21,7 +21,24 @@
                     }
                 },
                 {
-                    "source": "D:\\sealtest_android\\app\\src\\main\\res\\values\\styles.xml",
+                    "source": "C:\\Users\\Administrator\\Desktop\\sealtest_android\\app\\src\\main\\res\\values\\strings.xml",
+                    "from": {
+                        "startLines": "4,3,5",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "115,59,169",
+                        "endColumns": "52,54,52",
+                        "endOffsets": "163,109,217"
+                    },
+                    "to": {
+                        "startLines": "57,58,66",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "8505,8558,9071",
+                        "endColumns": "52,54,52",
+                        "endOffsets": "8553,8608,9119"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Administrator\\Desktop\\sealtest_android\\app\\src\\main\\res\\values\\styles.xml",
                     "from": {
                         "startLines": "6,15",
                         "startColumns": "4,4",
@@ -59,24 +76,7 @@
                     }
                 },
                 {
-                    "source": "D:\\sealtest_android\\app\\src\\main\\res\\values\\strings.xml",
-                    "from": {
-                        "startLines": "4,3,5",
-                        "startColumns": "4,4,4",
-                        "startOffsets": "115,59,169",
-                        "endColumns": "52,54,52",
-                        "endOffsets": "163,109,217"
-                    },
-                    "to": {
-                        "startLines": "57,58,66",
-                        "startColumns": "4,4,4",
-                        "startOffsets": "8505,8558,9071",
-                        "endColumns": "52,54,52",
-                        "endOffsets": "8553,8608,9119"
-                    }
-                },
-                {
-                    "source": "D:\\sealtest_android\\app\\src\\main\\res\\values\\dimens.xml",
+                    "source": "C:\\Users\\Administrator\\Desktop\\sealtest_android\\app\\src\\main\\res\\values\\dimens.xml",
                     "from": {
                         "startLines": "3,4",
                         "startColumns": "4,4",

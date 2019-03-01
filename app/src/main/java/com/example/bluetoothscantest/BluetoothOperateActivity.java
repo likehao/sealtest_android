@@ -21,8 +21,9 @@ import android.bluetooth.BluetoothManager;
 import android.bluetooth.BluetoothProfile;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.text.method.ScrollingMovementMethod;
+import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -48,7 +49,6 @@ public class BluetoothOperateActivity extends Activity implements View.OnClickLi
     private BluetoothGattCharacteristic wrt_char = null;
     //蓝牙协定服务通知对象
     private BluetoothGattCharacteristic ntf_char = null;
-
     //显示盖章次数的TextView控件
     private TextView tv = null;
     //盖章总次数
@@ -57,6 +57,7 @@ public class BluetoothOperateActivity extends Activity implements View.OnClickLi
     private Button btnReset, btnClose, btnElectric, lock_seal, delete_fingerprint, set_fingerprint, select_fingerprint;
     private Button clear_bt, press_time, press_password, select_press_time, change_press_power, delete_press_pwd;
     private EditText showET;
+    private Button set_seal_delay_bt,select_seal_delay_bt;
     byte[] bytes;
     private String str = "";
     //上传历史数据域集合
@@ -120,6 +121,8 @@ public class BluetoothOperateActivity extends Activity implements View.OnClickLi
         select_press_time = (Button) findViewById(R.id.select_press_time);
         change_press_power = (Button) findViewById(R.id.change_press_power);
         delete_press_pwd = (Button) findViewById(R.id.delete_press_pwd);
+        set_seal_delay_bt = (Button) findViewById(R.id.set_seal_delay_bt);
+        select_seal_delay_bt = (Button) findViewById(R.id.select_seal_delay_bt);
     }
 
     public void setListener() {
@@ -141,6 +144,8 @@ public class BluetoothOperateActivity extends Activity implements View.OnClickLi
         select_press_time.setOnClickListener(this);
         delete_press_pwd.setOnClickListener(this);
         change_press_power.setOnClickListener(this);
+        set_seal_delay_bt.setOnClickListener(this);
+        select_seal_delay_bt.setOnClickListener(this);
     }
 
     //按钮点击
@@ -193,13 +198,6 @@ public class BluetoothOperateActivity extends Activity implements View.OnClickLi
                     //启动
                     byte[] startAllByte = CommonUtil.startData();
                     sendDataToBlue(new DataProtocol(CommonUtil.START, startAllByte));
-                    showData(bytes);
-                    break;
-                case R.id.btnUpdateKeyPwd:
-                    //修改按键密码
-                    byte[] pwdCode = DataTrans.intToByteArray(1, true);
-                    byte[] keyPwd = new byte[]{pwdCode[0], pwdCode[1], pwdCode[2], pwdCode[3], 1, 2, 3, 4, 5, 6, 6, 5, 4, 3, 2, 1};
-                    sendDataToBlue(new DataProtocol(CommonUtil.UPDATEKEPWD, keyPwd));
                     showData(bytes);
                     break;
                 case R.id.btnReset:   //重置
@@ -263,16 +261,33 @@ public class BluetoothOperateActivity extends Activity implements View.OnClickLi
                     showData(bytes);
                     break;
                 case R.id.change_press_power:  //修改按键密码权限
-                    sendDataToBlue(new DataProtocol(CommonUtil.CHANGEPWDPOWER, CommonUtil.changePwdPower()));
+                    byte[] changeByte = getShre();
+                    byte[] changePwdPre = CommonUtil.changePwdPower(changeByte);
+                    sendDataToBlue(new DataProtocol(CommonUtil.CHANGEPWDPOWER, changePwdPre));
+                    showData(bytes);
+                    break;
+                case R.id.btnUpdateKeyPwd:   //修改按键密码
+                    byte[] b = getShre();
+                    byte[] pwdCode = CommonUtil.changePwd(b);
+                    sendDataToBlue(new DataProtocol(CommonUtil.UPDATEKEPWD, pwdCode));
                     showData(bytes);
                     break;
                 case R.id.delete_press_pwd:  //删除按键密码
-                    byte[] deletePwdCode = DataTrans.intToByteArray(1, true);
-                    byte[] deletePrePwd = new byte[]{deletePwdCode[0], deletePwdCode[1], deletePwdCode[2], deletePwdCode[3]};
-                    sendDataToBlue(new DataProtocol(CommonUtil.DELETEPRESSPWD, deletePrePwd));
+                    byte[] deleteByte = getShre();
+                    byte[] deletePwdCode = CommonUtil.deletePressPwd(deleteByte);
+                    sendDataToBlue(new DataProtocol(CommonUtil.DELETEPRESSPWD, deletePwdCode));
                     showData(bytes);
                     break;
-
+                case R.id.set_seal_delay_bt:  //设置盖章延时时间
+                    byte[] set_seal_delay = new byte[]{1};
+                    sendDataToBlue(new DataProtocol(CommonUtil.SETSEALDELAY, set_seal_delay));
+                    showData(bytes);
+                    break;
+                case R.id.select_seal_delay_bt:  //查询盖章延时时间
+                    byte[] select_seal_delay = new byte[]{0};
+                    sendDataToBlue(new DataProtocol(CommonUtil.SELECTSEALDELAY, select_seal_delay));
+                    showData(bytes);
+                    break;
             }
         }
 
@@ -349,7 +364,6 @@ public class BluetoothOperateActivity extends Activity implements View.OnClickLi
                                 } else if (buffer[3] == integer) {
                                     receiveData(buffer);
                                 }
-
                                 break;
                             case (byte) 0xA1:
                /*                 if (buffer.length == 6) {
@@ -378,6 +392,7 @@ public class BluetoothOperateActivity extends Activity implements View.OnClickLi
                             case (byte) 0xA4:
                                 if (buffer[3] == 0) {
                                     receiveData(buffer);
+                                    sharedPre(buffer);  //存储byte
                                 } else if (buffer[3] == integer) {
                                     receiveData(buffer);
                                 }
@@ -389,6 +404,12 @@ public class BluetoothOperateActivity extends Activity implements View.OnClickLi
                                 receiveData(buffer);
                                 break;
                             case (byte) 0xB2:    //删除按键密码
+                                receiveData(buffer);
+                                break;
+                            case (byte) 0xB3:   //查询盖章延时
+                                receiveData(buffer);
+                                break;
+                            case (byte) 0xB4:   //设置盖章延时
                                 receiveData(buffer);
                                 break;
                             case (byte) 0xA5:
@@ -527,6 +548,30 @@ public class BluetoothOperateActivity extends Activity implements View.OnClickLi
 
         }
     };
+
+    /**
+     * 截取密码代码并存储byte数组
+     * @param b
+     */
+    private void sharedPre(byte[] b) {
+        byte[] shaB = DataTrans.subByte(b, 4, 4);
+        SharedPreferences sharedPreferences = getSharedPreferences("demo", Activity.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        String s = new String(Base64.encode(shaB, Base64.DEFAULT));
+        editor.putString("content", s);
+        editor.commit();
+    }
+
+    /**
+     * 取存储byte[]值
+     * @return
+     */
+    private byte[] getShre() {
+        SharedPreferences sharedPreferences = getSharedPreferences("demo", Activity.MODE_PRIVATE);
+        String string = sharedPreferences.getString("content", "");
+        byte[] b = Base64.decode(string.getBytes(), Base64.DEFAULT);
+        return b;
+    }
 
     //连接蓝牙
     private void connect(BluetoothDevice device) {
@@ -755,7 +800,7 @@ public class BluetoothOperateActivity extends Activity implements View.OnClickLi
     @Override
     protected void onDestroy() {
         disConnect();
-        Log.e("TAG","断开连接。。。。。。。。。。");
+        Log.e("TAG", "断开连接。。。。。。。。。。");
         super.onDestroy();
     }
 
@@ -768,7 +813,7 @@ public class BluetoothOperateActivity extends Activity implements View.OnClickLi
         if (timer != null) {
             timer.cancel();
         }
-        if (task != null){
+        if (task != null) {
             task.cancel();
         }
     }

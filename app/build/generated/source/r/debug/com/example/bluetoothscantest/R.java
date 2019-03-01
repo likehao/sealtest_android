@@ -657,9 +657,11 @@ public final class R {
     public static final int recording_fingerprint=0x7f040016;
     public static final int select_fingerprint=0x7f040017;
     public static final int select_press_time=0x7f040018;
-    public static final int set_fingerprint=0x7f040019;
-    public static final int showET=0x7f04001a;
-    public static final int txtCount=0x7f04001b;
+    public static final int select_seal_delay_bt=0x7f040019;
+    public static final int set_fingerprint=0x7f04001a;
+    public static final int set_seal_delay_bt=0x7f04001b;
+    public static final int showET=0x7f04001c;
+    public static final int txtCount=0x7f04001d;
   }
   public static final class layout {
     public static final int activity_bluetoothoperate=0x7f050000;

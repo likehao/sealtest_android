@@ -130,9 +130,11 @@ int id press_time 0x7f040015
 int id recording_fingerprint 0x7f040016
 int id select_fingerprint 0x7f040017
 int id select_press_time 0x7f040018
-int id set_fingerprint 0x7f040019
-int id showET 0x7f04001a
-int id txtCount 0x7f04001b
+int id select_seal_delay_bt 0x7f040019
+int id set_fingerprint 0x7f04001a
+int id set_seal_delay_bt 0x7f04001b
+int id showET 0x7f04001c
+int id txtCount 0x7f04001d
 int layout activity_bluetoothoperate 0x7f050000
 int layout activity_main 0x7f050001
 int menu main 0x7f060000

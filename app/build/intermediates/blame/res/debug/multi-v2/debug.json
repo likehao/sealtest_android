@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\sealtest_android\\app\\build\\intermediates\\res\\merged\\debug\\values-v14_values-v14.arsc.flat",
+            "outputFile": "C:\\Users\\Administrator\\Desktop\\sealtest_android\\app\\build\\intermediates\\res\\merged\\debug\\values-v14_values-v14.arsc.flat",
             "map": [
                 {
-                    "source": "D:\\sealtest_android\\app\\src\\main\\res\\values-v14\\styles.xml",
+                    "source": "C:\\Users\\Administrator\\Desktop\\sealtest_android\\app\\src\\main\\res\\values-v14\\styles.xml",
                     "from": {
                         "startLines": "7",
                         "startColumns": "4",
@@ -25,7 +25,7 @@
             ]
         },
         {
-            "outputFile": "D:\\sealtest_android\\app\\build\\intermediates\\res\\merged\\debug\\values-zh_values-zh.arsc.flat",
+            "outputFile": "C:\\Users\\Administrator\\Desktop\\sealtest_android\\app\\build\\intermediates\\res\\merged\\debug\\values-zh_values-zh.arsc.flat",
             "map": [
                 {
                     "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-1\\files-1.1\\SmartRefreshLayout-1.1.0-alpha-18.aar\\82b6d8e709ff92ae016d66ed9f78f48f\\res\\values-zh\\values-zh.xml",
@@ -57,10 +57,10 @@
             ]
         },
         {
-            "outputFile": "D:\\sealtest_android\\app\\build\\intermediates\\res\\merged\\debug\\values-sw720dp-land-v13_values-sw720dp-land-v13.arsc.flat",
+            "outputFile": "C:\\Users\\Administrator\\Desktop\\sealtest_android\\app\\build\\intermediates\\res\\merged\\debug\\values-sw720dp-land-v13_values-sw720dp-land-v13.arsc.flat",
             "map": [
                 {
-                    "source": "D:\\sealtest_android\\app\\src\\main\\res\\values-sw720dp-land\\dimens.xml",
+                    "source": "C:\\Users\\Administrator\\Desktop\\sealtest_android\\app\\src\\main\\res\\values-sw720dp-land\\dimens.xml",
                     "from": {
                         "startLines": "6",
                         "startColumns": "4",
@@ -79,7 +79,31 @@
             ]
         },
         {
-            "outputFile": "D:\\sealtest_android\\app\\build\\intermediates\\res\\merged\\debug\\values_values.arsc.flat",
+            "outputFile": "C:\\Users\\Administrator\\Desktop\\sealtest_android\\app\\build\\intermediates\\res\\merged\\debug\\values-v11_values-v11.arsc.flat",
+            "map": [
+                {
+                    "source": "C:\\Users\\Administrator\\Desktop\\sealtest_android\\app\\src\\main\\res\\values-v11\\styles.xml",
+                    "from": {
+                        "startLines": "6",
+                        "startColumns": "4",
+                        "startOffsets": "183",
+                        "endLines": "8",
+                        "endColumns": "12",
+                        "endOffsets": "317"
+                    },
+                    "to": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "4",
+                        "endColumns": "12",
+                        "endOffsets": "187"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "C:\\Users\\Administrator\\Desktop\\sealtest_android\\app\\build\\intermediates\\res\\merged\\debug\\values_values.arsc.flat",
             "map": [
                 {
                     "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-1\\files-1.1\\SmartRefreshHeader-1.1.0-alpha-18.aar\\7c38a20105a979320b10a2aa8a9527f6\\res\\values\\values.xml",
@@ -99,7 +123,24 @@
                     }
                 },
                 {
-                    "source": "D:\\sealtest_android\\app\\src\\main\\res\\values\\styles.xml",
+                    "source": "C:\\Users\\Administrator\\Desktop\\sealtest_android\\app\\src\\main\\res\\values\\strings.xml",
+                    "from": {
+                        "startLines": "4,3,5",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "115,59,169",
+                        "endColumns": "52,54,52",
+                        "endOffsets": "163,109,217"
+                    },
+                    "to": {
+                        "startLines": "57,58,66",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "8505,8558,9071",
+                        "endColumns": "52,54,52",
+                        "endOffsets": "8553,8608,9119"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Administrator\\Desktop\\sealtest_android\\app\\src\\main\\res\\values\\styles.xml",
                     "from": {
                         "startLines": "6,15",
                         "startColumns": "4,4",
@@ -137,24 +178,7 @@
                     }
                 },
                 {
-                    "source": "D:\\sealtest_android\\app\\src\\main\\res\\values\\strings.xml",
-                    "from": {
-                        "startLines": "4,3,5",
-                        "startColumns": "4,4,4",
-                        "startOffsets": "115,59,169",
-                        "endColumns": "52,54,52",
-                        "endOffsets": "163,109,217"
-                    },
-                    "to": {
-                        "startLines": "57,58,66",
-                        "startColumns": "4,4,4",
-                        "startOffsets": "8505,8558,9071",
-                        "endColumns": "52,54,52",
-                        "endOffsets": "8553,8608,9119"
-                    }
-                },
-                {
-                    "source": "D:\\sealtest_android\\app\\src\\main\\res\\values\\dimens.xml",
+                    "source": "C:\\Users\\Administrator\\Desktop\\sealtest_android\\app\\src\\main\\res\\values\\dimens.xml",
                     "from": {
                         "startLines": "3,4",
                         "startColumns": "4,4",
@@ -168,30 +192,6 @@
                         "startOffsets": "8391,8449",
                         "endColumns": "57,55",
                         "endOffsets": "8444,8500"
-                    }
-                }
-            ]
-        },
-        {
-            "outputFile": "D:\\sealtest_android\\app\\build\\intermediates\\res\\merged\\debug\\values-v11_values-v11.arsc.flat",
-            "map": [
-                {
-                    "source": "D:\\sealtest_android\\app\\src\\main\\res\\values-v11\\styles.xml",
-                    "from": {
-                        "startLines": "6",
-                        "startColumns": "4",
-                        "startOffsets": "183",
-                        "endLines": "8",
-                        "endColumns": "12",
-                        "endOffsets": "317"
-                    },
-                    "to": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endLines": "4",
-                        "endColumns": "12",
-                        "endOffsets": "187"
                     }
                 }
             ]

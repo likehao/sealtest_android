@@ -57,6 +57,12 @@ public class DataTrans {
         return String.format("%02x", i);
     }
 
+    /**
+     * 以小端模式将int转成byte[] 四个字节 ,bigEndian判断是否大端
+     * @param integer
+     * @param bigEndian
+     * @return
+     */
     public static byte[] intToByteArray(Integer integer, Boolean bigEndian) {
         int byteNum = (40 - Integer.numberOfLeadingZeros(integer < 0 ? ~integer : integer)) / 8;
         byte[] byteArray = new byte[4];
@@ -71,7 +77,27 @@ public class DataTrans {
         return byteArray;
 
     }
+    /**
+     * 以小端模式将int转成byte[]
+     *
+     * @param value
+     * @return
+     */
+    public static byte[] intToBytesLittle(int value) {
+        byte[] src = new byte[4];
+        src[3] = (byte) ((value >> 24) & 0xFF);
+        src[2] = (byte) ((value >> 16) & 0xFF);
+        src[1] = (byte) ((value >> 8) & 0xFF);
+        src[0] = (byte) (value & 0xFF);
+        return src;
+    }
 
+    /**
+     * 以小端模式将int转成byte[] 两个字节，bigEndian是否大端，true/false
+     * @param s
+     * @param bigEndian
+     * @return
+     */
     public static byte[] shortToByteArray(Short s, Boolean bigEndian) {
         Integer integer = (int) s;
         int byteNum = (40 - Integer.numberOfLeadingZeros(integer < 0 ? ~integer : integer)) / 8;
@@ -130,7 +156,7 @@ public class DataTrans {
     }
 
     /**
-     * byte数组中取int数值，本方法适用于(低位在前，高位在后)的顺序
+     * byte数组中取int数值，适用于(低位在前，高位在后)的顺序,从数组的第offset位开始
      */
     public static int bytesToInt(byte[] src, int offset) {
         int value = 0;

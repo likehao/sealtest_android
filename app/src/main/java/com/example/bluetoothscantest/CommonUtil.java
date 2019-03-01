@@ -34,6 +34,14 @@ public class CommonUtil{
      */
     public static final byte DELETEPRESSPWD = (byte) 0xB2;
     /**
+     * 查询盖章延时时间
+     */
+    public static final byte SELECTSEALDELAY = (byte) 0xB3;
+    /**
+     * 设置盖章延时时间
+     */
+    public static final byte SETSEALDELAY = (byte) 0xB4;
+    /**
      * 添加按键密码和权限
      */
     public static final byte ADDPRESSPWD = (byte) 0xA4;
@@ -128,12 +136,11 @@ public class CommonUtil{
      * 启动
      */
     public static byte[] startData(){
-        byte[] time = DataTrans.intToByteArray(5,true);  //可盖章次数
+        byte[] time = DataTrans.shortToByteArray((short) 5,false);  //可盖章次数
         int year = 2019 % 2000;
         byte failYear = (byte) year;
-        byte[] startByte = new byte[]{ time[0], time[1],time[2],time[3],failYear,9, 9, 19, 19, 19};
+        byte[] startByte = new byte[]{ time[0], time[1],failYear,9, 9, 19, 19, 19};
         return startByte;
-
     }
     /**
      * 指纹权限
@@ -155,8 +162,10 @@ public class CommonUtil{
      * @return
      */
     public static byte[] addPressPwd(){
-        byte[] time = DataTrans.shortToByteArray((short) 100,true);
-        byte[] addPressPwd = new byte[]{ 1,2,3,4,5,6,time[0], time[1], (byte) 2019 ,9, 9, 19, 19, 19};
+        byte[] time = DataTrans.shortToByteArray((short) 100,false);
+        int year = 2019 % 2000;
+        byte failYear = (byte) year;
+        byte[] addPressPwd = new byte[]{ 1,1,1,1,1,1,time[0], time[1], failYear ,9, 9, 19, 19, 19};
         return addPressPwd;
     }
 
@@ -164,10 +173,28 @@ public class CommonUtil{
      * 修改按键密码权限
      * @return
      */
-    public static byte[] changePwdPower(){
-        byte[] changePwdCode = DataTrans.intToByteArray(1,true);
-        byte[] time = DataTrans.shortToByteArray((short) 100,true);
-        byte[] changePrePow = new byte[]{changePwdCode[0],changePwdCode[1],changePwdCode[2],changePwdCode[3],time[0],time[1],(byte) 2019 ,9, 9, 19, 19, 19};
+    public static byte[] changePwdPower(byte[] bytes){
+   //     byte[] changePwdCode = DataTrans.intToByteArray(1,false);
+        byte[] time = DataTrans.shortToByteArray((short) 100,false);
+        int year = 2019 % 2000;
+        byte failYear = (byte) year;
+        byte[] changePrePow = new byte[]{bytes[0],bytes[1],bytes[2],bytes[3],time[0],time[1],failYear ,9, 9, 19, 19, 19};
         return changePrePow;
+    }
+    /**
+     * 修改按键密码
+     */
+    public static byte[] changePwd(byte[] bytes){
+        byte[] keyPwd = new byte[]{bytes[0],bytes[1],bytes[2],bytes[3], 1,1, 1, 1, 1, 1, 6, 5, 4, 3, 2, 1};
+        return keyPwd;
+    }
+    /**
+     * 删除按键密码
+     */
+    public static byte[] deletePressPwd(byte[] bytes){
+       /* byte[] deletePwdCode = DataTrans.intToByteArray(1,false);
+        byte[] deletePrePwd = new byte[]{deletePwdCode[0], deletePwdCode[1], deletePwdCode[2], deletePwdCode[3]};*/
+        byte[] deletePrePwd = new byte[]{bytes[0],bytes[1],bytes[2],bytes[3]};
+        return deletePrePwd;
     }
 }
