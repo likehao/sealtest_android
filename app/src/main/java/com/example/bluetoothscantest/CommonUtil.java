@@ -137,9 +137,19 @@ public class CommonUtil{
      */
     public static byte[] startData(){
         byte[] time = DataTrans.shortToByteArray((short) 5,false);  //可盖章次数
-        int year = 2019 % 2000;
+        int year = 2100 % 2000;
         byte failYear = (byte) year;
         byte[] startByte = new byte[]{ time[0], time[1],failYear,9, 9, 19, 19, 19};
+        return startByte;
+    }
+    /**
+     * 指纹权限
+     */
+    public static byte[] setFingerprint(int code){
+        byte[] time = DataTrans.shortToByteArray((short) 5,false);  //可盖章次数
+        int year = 2100 % 2000;
+        byte failYear = (byte) year;
+        byte[] startByte = new byte[]{(byte) code,time[0], time[1],failYear,9, 9, 19, 19, 19};
         return startByte;
     }
     /**
@@ -162,10 +172,10 @@ public class CommonUtil{
      * @return
      */
     public static byte[] addPressPwd(){
-        byte[] time = DataTrans.shortToByteArray((short) 100,false);
-        int year = 2019 % 2000;
+        byte[] time = DataTrans.shortToByteArray((short) 5,false);
+        int year = 2100 % 2000;
         byte failYear = (byte) year;
-        byte[] addPressPwd = new byte[]{ 1,1,1,1,1,1,time[0], time[1], failYear ,9, 9, 19, 19, 19};
+        byte[] addPressPwd = new byte[]{ 1,2,3,4,5,6,time[0], time[1], failYear ,9, 9, 19, 19, 19};
         return addPressPwd;
     }
 
@@ -175,8 +185,8 @@ public class CommonUtil{
      */
     public static byte[] changePwdPower(byte[] bytes){
    //     byte[] changePwdCode = DataTrans.intToByteArray(1,false);
-        byte[] time = DataTrans.shortToByteArray((short) 100,false);
-        int year = 2019 % 2000;
+        byte[] time = DataTrans.shortToByteArray((short) 5,false);
+        int year = 2100 % 2000;
         byte failYear = (byte) year;
         byte[] changePrePow = new byte[]{bytes[0],bytes[1],bytes[2],bytes[3],time[0],time[1],failYear ,9, 9, 19, 19, 19};
         return changePrePow;
@@ -185,7 +195,7 @@ public class CommonUtil{
      * 修改按键密码
      */
     public static byte[] changePwd(byte[] bytes){
-        byte[] keyPwd = new byte[]{bytes[0],bytes[1],bytes[2],bytes[3], 1,1, 1, 1, 1, 1, 6, 5, 4, 3, 2, 1};
+        byte[] keyPwd = new byte[]{bytes[0],bytes[1],bytes[2],bytes[3], 1,2,3, 4, 5, 6, 6, 5, 4, 3, 2, 1};
         return keyPwd;
     }
     /**

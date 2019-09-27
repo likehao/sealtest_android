@@ -25,6 +25,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Base64;
 import android.util.Log;
+import android.view.ContextThemeWrapper;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -75,6 +76,7 @@ public class BluetoothOperateActivity extends Activity implements View.OnClickLi
     boolean isStpoped;
     Timer timer;
     TimerTask task;
+    private Button recording_fingerprint;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -123,6 +125,7 @@ public class BluetoothOperateActivity extends Activity implements View.OnClickLi
         delete_press_pwd = (Button) findViewById(R.id.delete_press_pwd);
         set_seal_delay_bt = (Button) findViewById(R.id.set_seal_delay_bt);
         select_seal_delay_bt = (Button) findViewById(R.id.select_seal_delay_bt);
+        recording_fingerprint = (Button) findViewById(R.id.recording_fingerprint);
     }
 
     public void setListener() {
@@ -146,6 +149,7 @@ public class BluetoothOperateActivity extends Activity implements View.OnClickLi
         change_press_power.setOnClickListener(this);
         set_seal_delay_bt.setOnClickListener(this);
         select_seal_delay_bt.setOnClickListener(this);
+        recording_fingerprint.setOnClickListener(this);
     }
 
     //按钮点击
@@ -230,20 +234,15 @@ public class BluetoothOperateActivity extends Activity implements View.OnClickLi
                     showData(bytes);
                     break;
                 case R.id.recording_fingerprint:      //录制指纹
-                    byte[] fingerprint = new byte[]{0};
+                    byte[] fingerprint = CommonUtil.startData();
                     sendDataToBlue(new DataProtocol(CommonUtil.RECORDING, fingerprint));
                     showData(bytes);
                     break;
                 case R.id.delete_fingerprint:   //删除指纹
-                    long l = DataTrans.parseLong("EB");
-                    int integer = DataTrans.integer("25");
-                    byte[] delete = new byte[]{(byte) l, (byte) integer};
-                    sendDataToBlue(new DataProtocol(CommonUtil.DELETE, delete));
-                    showData(bytes);
+                    showDia(1);
                     break;
                 case R.id.set_fingerprint:  //设置指纹权限
-                    sendDataToBlue(new DataProtocol(CommonUtil.SET, CommonUtil.setFingerprint()));
-                    showData(bytes);
+                    showDia(2);
                     break;
                 case R.id.select_fingerprint:  //查询指纹权限
                     long select = DataTrans.parseLong("EB");
@@ -262,20 +261,26 @@ public class BluetoothOperateActivity extends Activity implements View.OnClickLi
                     break;
                 case R.id.change_press_power:  //修改按键密码权限
                     byte[] changeByte = getShre();
-                    byte[] changePwdPre = CommonUtil.changePwdPower(changeByte);
-                    sendDataToBlue(new DataProtocol(CommonUtil.CHANGEPWDPOWER, changePwdPre));
+                    if (changeByte.length != 0) {
+                        byte[] changePwdPre = CommonUtil.changePwdPower(changeByte);
+                        sendDataToBlue(new DataProtocol(CommonUtil.CHANGEPWDPOWER, changePwdPre));
+                    }
                     showData(bytes);
                     break;
                 case R.id.btnUpdateKeyPwd:   //修改按键密码
                     byte[] b = getShre();
-                    byte[] pwdCode = CommonUtil.changePwd(b);
-                    sendDataToBlue(new DataProtocol(CommonUtil.UPDATEKEPWD, pwdCode));
+                    if (b.length != 0) {
+                        byte[] pwdCode = CommonUtil.changePwd(b);
+                        sendDataToBlue(new DataProtocol(CommonUtil.UPDATEKEPWD, pwdCode));
+                    }
                     showData(bytes);
                     break;
                 case R.id.delete_press_pwd:  //删除按键密码
                     byte[] deleteByte = getShre();
-                    byte[] deletePwdCode = CommonUtil.deletePressPwd(deleteByte);
-                    sendDataToBlue(new DataProtocol(CommonUtil.DELETEPRESSPWD, deletePwdCode));
+                    if (deleteByte.length != 0) {
+                        byte[] deletePwdCode = CommonUtil.deletePressPwd(deleteByte);
+                        sendDataToBlue(new DataProtocol(CommonUtil.DELETEPRESSPWD, deletePwdCode));
+                    }
                     showData(bytes);
                     break;
                 case R.id.set_seal_delay_bt:  //设置盖章延时时间
@@ -293,6 +298,33 @@ public class BluetoothOperateActivity extends Activity implements View.OnClickLi
 
     }
 
+    private void showDia(final int code){
+        AlertDialog.Builder builder = new AlertDialog.Builder(new ContextThemeWrapper(this,R.style.dialog));
+        View view = View.inflate(this,R.layout.dialog_layout,null);
+        final AlertDialog dialog = builder.create();
+        dialog.setView(view,0,0,0,0);
+
+        final EditText text = (EditText) view.findViewById(R.id.et);
+        Button button = (Button) view.findViewById(R.id.sure_bt);  //确定
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+                if (code == 1){
+                    //删除指纹
+                    byte[] delete = new byte[]{Byte.parseByte(text.getText().toString().trim())};
+                    sendDataToBlue(new DataProtocol(CommonUtil.DELETE, delete));
+                    showData(bytes);
+                }else if (code == 2){
+                    //设置指纹权限
+                    sendDataToBlue(new DataProtocol(CommonUtil.SET, CommonUtil.setFingerprint(Integer.parseInt(text.getText().toString().trim()))));
+                    showData(bytes);
+                }
+
+            }
+        });
+        dialog.show();
+    }
     //蓝牙设备回调对象
     private BluetoothGattCallback gattCallback = new BluetoothGattCallback() {
         @Override
@@ -327,8 +359,10 @@ public class BluetoothOperateActivity extends Activity implements View.OnClickLi
                 service = gatt.getService(UUID.fromString(BluetoothUUID.SERVICE_UUID));
                 //获取印章服务对象的NOTIFY特征
                 ntf_char = service.getCharacteristic(UUID.fromString(BluetoothUUID.NOTIFY_UUID));
+
                 if ((ntf_char.getProperties() | BluetoothGattCharacteristic.PROPERTY_NOTIFY) > 0) {
                     boolean flag = gatt.setCharacteristicNotification(ntf_char, true);
+                    //导致连上服务立马断开
                     List<BluetoothGattDescriptor> descriptorList = ntf_char.getDescriptors();
                     if (flag && descriptorList != null && descriptorList.size() > 0) {
                         for (BluetoothGattDescriptor descriptor : descriptorList) {
@@ -339,6 +373,7 @@ public class BluetoothOperateActivity extends Activity implements View.OnClickLi
                 }
                 //获取印章服务对象的写入特性
                 wrt_char = service.getCharacteristic(UUID.fromString(BluetoothUUID.WRITE_UUID));
+
             }
         }
 
@@ -349,6 +384,7 @@ public class BluetoothOperateActivity extends Activity implements View.OnClickLi
                 @Override
                 public void run() {
                     //收到数据
+                    Log.e("TAG","成功接收返回数据");
                     byte[] buffer = characteristic.getValue();
                     if (buffer != null && buffer.length > 2) {
                         if (!check(buffer)) {
@@ -441,6 +477,13 @@ public class BluetoothOperateActivity extends Activity implements View.OnClickLi
                                 if (buffer[3] == 0) {
                                     receiveData(buffer);
                                 } else if (buffer[3] == integer) {
+                                    receiveData(buffer);
+                                }
+                                break;
+                            case (byte) 0xAA:
+                                if (buffer[4] == 0){
+                                    receiveData(buffer);
+                                }else if (buffer[4] == integer){
                                     receiveData(buffer);
                                 }
                                 break;

@@ -32,85 +32,8 @@
             android:id="@+id/btnSuperUser"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="识别为超管" />
-
-
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <Button
-            android:id="@+id/press_password"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="加按键密码和权限" />
-        <Button
-            android:id="@+id/btnUpdateKeyPwd"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="更改按键密码" />
-
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <Button
-            android:id="@+id/btnUpdatePwd"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:visibility="gone"
-            android:text="更改启动密码" />
-
-        <Button
-            android:id="@+id/select_press_time"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="查询长按时间" />
-        <Button
-            android:id="@+id/press_time"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="设置长按时间" />
-
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <Button
-            android:id="@+id/change_press_power"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="修改按键密码权限" />
-        <Button
-            android:id="@+id/delete_press_pwd"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="删除按键密码" />
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <Button
-            android:id="@+id/btnClose"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="断开蓝牙" />
-
-        <Button
-            android:id="@+id/btnElectric"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="电量查询" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+            android:text="识别为超管" />
 
         <Button
             android:id="@+id/lock_seal"
@@ -123,20 +46,23 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="设备重置" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
         <Button
-            android:id="@+id/recording_fingerprint"
+            android:id="@+id/press_password"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:visibility="gone"
-            android:text="录制指纹" />
+            android:text="添加按键密码权限" />
 
         <Button
-            android:id="@+id/delete_fingerprint"
+            android:id="@+id/btnUpdateKeyPwd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:visibility="gone"
-            android:text="删除指纹" />
+            android:text="更改按键密码" />
 
     </LinearLayout>
 
@@ -145,24 +71,58 @@
         android:layout_height="wrap_content">
 
         <Button
-            android:id="@+id/set_fingerprint"
+            android:id="@+id/btnUpdatePwd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:visibility="gone"
-            android:text="设置指纹权限" />
+            android:text="更改启动密码"
+            android:visibility="gone" />
 
         <Button
-            android:id="@+id/select_fingerprint"
+            android:id="@+id/select_press_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:visibility="gone"
-            android:text="查询指纹权限" />
+            android:text="查询长按时间" />
 
+        <Button
+            android:id="@+id/press_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="设置长按时间" />
+
+        <Button
+            android:id="@+id/btnClose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="断开蓝牙" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/change_press_power"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="修改按键密码权限" />
+
+        <Button
+            android:id="@+id/delete_press_pwd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="删除按键密码" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <Button
+            android:id="@+id/btnElectric"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="电量查询" />
 
         <Button
             android:id="@+id/set_seal_delay_bt"
@@ -175,29 +135,65 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="查询盖章延时" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/recording_fingerprint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="录制指纹" />
+
+        <Button
+            android:id="@+id/delete_fingerprint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="删除指纹" />
+
+        <Button
+            android:id="@+id/set_fingerprint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="设置指纹权限" />
 
     </LinearLayout>
 
-        <RelativeLayout
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/select_fingerprint"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:text="查询指纹权限"
+            android:visibility="gone" />
 
-            <EditText
-                android:id="@+id/showET"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="#999999"
-                android:focusable="false"
-                android:gravity="top"
-                android:textSize="12sp" />
+    </LinearLayout>
 
-            <Button
-                android:id="@+id/clear_bt"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_marginTop="150dp"
-                android:text="清空"
-                android:background="#ffffff"/>
-        </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/showET"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#999999"
+            android:focusable="false"
+            android:gravity="top"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/clear_bt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:background="#ffffff"
+            android:layout_marginTop="150dp"
+            android:text="清空" />
+    </RelativeLayout>
 </LinearLayout>

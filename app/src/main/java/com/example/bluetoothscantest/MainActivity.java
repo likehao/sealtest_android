@@ -182,20 +182,26 @@ public class MainActivity extends Activity {
     /**
      * 5.0之后新加入的扫描
      */
+    String itemName, deviceName, deviceMac;
     private ScanCallback scanCallback = new ScanCallback() {
         @Override
         public void onScanResult(int callbackType, ScanResult result) {
             BluetoothDevice bluetoothDevice = result.getDevice();
             if (bluetoothDevice != null) {
                 // 添加到ListView的Adapter。
-                String deviceName = bluetoothDevice.getName() == null ? "Unknown device" : bluetoothDevice.getName();
-                String deviceMac = bluetoothDevice.getAddress();
-                String itemName = deviceName + "->" + deviceMac;
-                if (!arrList.contains(itemName) && deviceName.contains("BLE-")) {
-                    arrList.add(itemName);
-                    Log.e("扫描到:",deviceMac+"");
-                    mAdapter.notifyDataSetChanged();
-                }
+                deviceName = bluetoothDevice.getName() == null ? "Unknown device" : bluetoothDevice.getName();
+                deviceMac = bluetoothDevice.getAddress();
+                itemName = deviceName + "->" + deviceMac;
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (!arrList.contains(itemName) && deviceName.contains("BLE-")) {
+                            arrList.add(itemName);
+                            Log.e("扫描到:",deviceMac+"");
+                            mAdapter.notifyDataSetChanged();
+                        }
+                    }
+                });
             }
         }
 
@@ -232,7 +238,7 @@ public class MainActivity extends Activity {
     private void stopDiscovery() {
         if (mBluetoothAdapter != null) {
             mBluetoothAdapter.cancelDiscovery();
-           // bluetoothLeScanner.stopScan(scanCallback);
+       //     bluetoothLeScanner.stopScan(scanCallback);
         }
         Log.e("TAG","停止扫描。。。。。。。。。");
     }

@@ -135,10 +135,10 @@ public final class R {
      * <colgroup align="left" />
      * <colgroup align="left" />
      * <tr><th>Constant</th><th>Value</th><th>Description</th></tr>
-     * <tr><td>FixedBehind</td><td>2</td><td>拉伸形变</td></tr>
-     * <tr><td>FixedFront</td><td>3</td><td>固定在背后</td></tr>
-     * <tr><td>MatchLayout</td><td>4</td><td>固定在前面</td></tr>
-     * <tr><td>Scale</td><td>1</td><td>平行移动</td></tr>
+     * <tr><td>FixedBehind</td><td>2</td><td></td></tr>
+     * <tr><td>FixedFront</td><td>3</td><td></td></tr>
+     * <tr><td>MatchLayout</td><td>4</td><td></td></tr>
+     * <tr><td>Scale</td><td>1</td><td></td></tr>
      * <tr><td>Translate</td><td>0</td><td></td></tr>
      * </table>
      */
@@ -239,8 +239,8 @@ public final class R {
      * <colgroup align="left" />
      * <colgroup align="left" />
      * <tr><th>Constant</th><th>Value</th><th>Description</th></tr>
-     * <tr><td>FixedBehind</td><td>2</td><td>拉伸形变</td></tr>
-     * <tr><td>Scale</td><td>1</td><td>平行移动</td></tr>
+     * <tr><td>FixedBehind</td><td>2</td><td></td></tr>
+     * <tr><td>Scale</td><td>1</td><td></td></tr>
      * <tr><td>Translate</td><td>0</td><td></td></tr>
      * </table>
      */
@@ -650,22 +650,25 @@ public final class R {
     public static final int clear_bt=0x7f04000f;
     public static final int delete_fingerprint=0x7f040010;
     public static final int delete_press_pwd=0x7f040011;
-    public static final int listView=0x7f040012;
-    public static final int lock_seal=0x7f040013;
-    public static final int press_password=0x7f040014;
-    public static final int press_time=0x7f040015;
-    public static final int recording_fingerprint=0x7f040016;
-    public static final int select_fingerprint=0x7f040017;
-    public static final int select_press_time=0x7f040018;
-    public static final int select_seal_delay_bt=0x7f040019;
-    public static final int set_fingerprint=0x7f04001a;
-    public static final int set_seal_delay_bt=0x7f04001b;
-    public static final int showET=0x7f04001c;
-    public static final int txtCount=0x7f04001d;
+    public static final int et=0x7f040012;
+    public static final int listView=0x7f040013;
+    public static final int lock_seal=0x7f040014;
+    public static final int press_password=0x7f040015;
+    public static final int press_time=0x7f040016;
+    public static final int recording_fingerprint=0x7f040017;
+    public static final int select_fingerprint=0x7f040018;
+    public static final int select_press_time=0x7f040019;
+    public static final int select_seal_delay_bt=0x7f04001a;
+    public static final int set_fingerprint=0x7f04001b;
+    public static final int set_seal_delay_bt=0x7f04001c;
+    public static final int showET=0x7f04001d;
+    public static final int sure_bt=0x7f04001e;
+    public static final int txtCount=0x7f04001f;
   }
   public static final class layout {
     public static final int activity_bluetoothoperate=0x7f050000;
     public static final int activity_main=0x7f050001;
+    public static final int dialog_layout=0x7f050002;
   }
   public static final class menu {
     public static final int main=0x7f060000;
@@ -702,6 +705,7 @@ public final class R {
   public static final class style {
     public static final int AppBaseTheme=0x7f080000;
     public static final int AppTheme=0x7f080001;
+    public static final int dialog=0x7f080002;
   }
   public static final class styleable {
     /**
@@ -743,8 +747,8 @@ public final class R {
      * <colgroup align="left" />
      * <colgroup align="left" />
      * <tr><th>Constant</th><th>Value</th><th>Description</th></tr>
-     * <tr><td>FixedBehind</td><td>2</td><td>拉伸形变</td></tr>
-     * <tr><td>Scale</td><td>1</td><td>平行移动</td></tr>
+     * <tr><td>FixedBehind</td><td>2</td><td></td></tr>
+     * <tr><td>Scale</td><td>1</td><td></td></tr>
      * <tr><td>Translate</td><td>0</td><td></td></tr>
      * </table>
      *
@@ -885,8 +889,8 @@ public final class R {
      * <colgroup align="left" />
      * <colgroup align="left" />
      * <tr><th>Constant</th><th>Value</th><th>Description</th></tr>
-     * <tr><td>FixedBehind</td><td>2</td><td>拉伸形变</td></tr>
-     * <tr><td>Scale</td><td>1</td><td>平行移动</td></tr>
+     * <tr><td>FixedBehind</td><td>2</td><td></td></tr>
+     * <tr><td>Scale</td><td>1</td><td></td></tr>
      * <tr><td>Translate</td><td>0</td><td></td></tr>
      * </table>
      *
@@ -1154,8 +1158,8 @@ public final class R {
      * <colgroup align="left" />
      * <colgroup align="left" />
      * <tr><th>Constant</th><th>Value</th><th>Description</th></tr>
-     * <tr><td>FixedBehind</td><td>2</td><td>拉伸形变</td></tr>
-     * <tr><td>Scale</td><td>1</td><td>平行移动</td></tr>
+     * <tr><td>FixedBehind</td><td>2</td><td></td></tr>
+     * <tr><td>Scale</td><td>1</td><td></td></tr>
      * <tr><td>Translate</td><td>0</td><td></td></tr>
      * </table>
      *
@@ -2308,10 +2312,10 @@ public final class R {
      * <colgroup align="left" />
      * <colgroup align="left" />
      * <tr><th>Constant</th><th>Value</th><th>Description</th></tr>
-     * <tr><td>FixedBehind</td><td>2</td><td>拉伸形变</td></tr>
-     * <tr><td>FixedFront</td><td>3</td><td>固定在背后</td></tr>
-     * <tr><td>MatchLayout</td><td>4</td><td>固定在前面</td></tr>
-     * <tr><td>Scale</td><td>1</td><td>平行移动</td></tr>
+     * <tr><td>FixedBehind</td><td>2</td><td></td></tr>
+     * <tr><td>FixedFront</td><td>3</td><td></td></tr>
+     * <tr><td>MatchLayout</td><td>4</td><td></td></tr>
+     * <tr><td>Scale</td><td>1</td><td></td></tr>
      * <tr><td>Translate</td><td>0</td><td></td></tr>
      * </table>
      *

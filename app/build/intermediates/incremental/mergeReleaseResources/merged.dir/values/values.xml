@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr format="enum" name="layout_srlSpinnerStyle">
+        <enum name="Translate" value="0"/><!--平行移动-->
+        <enum name="Scale" value="1"/><!--拉伸形变-->
+        <enum name="FixedBehind" value="2"/><!--固定在背后-->
+        <enum name="FixedFront" value="3"/><!--固定在前面-->
+        <enum name="MatchLayout" value="4"/><!--填满布局-->
+    </attr>
+    <attr format="color" name="srlAccentColor"/>
+    <attr format="enum" name="srlClassicsSpinnerStyle">
+        <enum name="Translate" value="0"/><!--平行移动-->
+        <enum name="Scale" value="1"/><!--拉伸形变-->
+        <enum name="FixedBehind" value="2"/><!--固定在背后-->
+    </attr>
+    <attr format="reference" name="srlDrawableArrow"/>
+    <attr format="dimension" name="srlDrawableArrowSize"/>
+    <attr format="dimension" name="srlDrawableMarginRight"/>
+    <attr format="reference" name="srlDrawableProgress"/>
+    <attr format="dimension" name="srlDrawableProgressSize"/>
+    <attr format="dimension" name="srlDrawableSize"/>
+    <attr format="boolean" name="srlEnableHorizontalDrag"/>
+    <attr format="integer" name="srlFinishDuration"/>
+    <attr format="color" name="srlPrimaryColor"/>
+    <attr format="string" name="srlTextFailed"/>
+    <attr format="string" name="srlTextFinish"/>
+    <attr format="string" name="srlTextLoading"/>
+    <attr format="string" name="srlTextNothing"/>
+    <attr format="string" name="srlTextPulling"/>
+    <attr format="string" name="srlTextRefreshing"/>
+    <attr format="string" name="srlTextRelease"/>
+    <attr format="string" name="srlTextSecondary"/>
+    <attr format="dimension" name="srlTextSizeTime"/>
+    <attr format="dimension" name="srlTextSizeTitle"/>
+    <attr format="string" name="srlTextUpdate"/>
+    <declare-styleable name="BallPulseFooter"><attr name="srlClassicsSpinnerStyle"/><attr format="color" name="srlAnimatingColor"/><attr format="color" name="srlNormalColor"/></declare-styleable>
+    <declare-styleable name="BezierRadarHeader"><attr name="srlPrimaryColor"/><attr name="srlAccentColor"/><attr name="srlEnableHorizontalDrag"/></declare-styleable>
+    <declare-styleable name="ClassicsFooter"><attr name="srlClassicsSpinnerStyle"/><attr name="srlPrimaryColor"/><attr name="srlAccentColor"/><attr name="srlFinishDuration"/><attr name="srlTextSizeTitle"/><attr name="srlDrawableArrow"/><attr name="srlDrawableProgress"/><attr name="srlDrawableMarginRight"/><attr name="srlDrawableSize"/><attr name="srlDrawableArrowSize"/><attr name="srlDrawableProgressSize"/><attr name="srlTextPulling"/><attr name="srlTextRelease"/><attr name="srlTextLoading"/><attr name="srlTextRefreshing"/><attr name="srlTextFinish"/><attr name="srlTextFailed"/><attr name="srlTextNothing"/></declare-styleable>
+    <declare-styleable name="ClassicsHeader"><attr name="srlClassicsSpinnerStyle"/><attr name="srlPrimaryColor"/><attr name="srlAccentColor"/><attr name="srlFinishDuration"/><attr name="srlDrawableArrow"/><attr name="srlDrawableProgress"/><attr name="srlDrawableMarginRight"/><attr name="srlDrawableSize"/><attr name="srlDrawableArrowSize"/><attr name="srlDrawableProgressSize"/><attr name="srlTextSizeTitle"/><attr name="srlTextSizeTime"/><attr format="dimension" name="srlTextTimeMarginTop"/><attr format="boolean" name="srlEnableLastTime"/><attr name="srlTextPulling"/><attr name="srlTextLoading"/><attr name="srlTextRelease"/><attr name="srlTextFinish"/><attr name="srlTextFailed"/><attr name="srlTextUpdate"/><attr name="srlTextSecondary"/><attr name="srlTextRefreshing"/></declare-styleable>
+    <declare-styleable name="DropBoxHeader"><attr format="reference" name="dhDrawable1"/><attr format="reference" name="dhDrawable2"/><attr format="reference" name="dhDrawable3"/></declare-styleable>
+    <declare-styleable name="FunGameHitBlockHeader"><attr format="integer" name="fghBlockHorizontalNum"/><attr format="dimension" name="fghBallSpeed">
+            
+            
+            
+        </attr></declare-styleable>
+    <declare-styleable name="FunGameView"><attr format="string" name="fghMaskTextTop"/><attr format="string" name="fghMaskTextTopPull"/><attr format="string" name="fghMaskTextTopRelease"/><attr format="string" name="fghMaskTextBottom"/><attr format="dimension" name="fghMaskTextSizeTop"/><attr format="dimension" name="fghMaskTextSizeBottom"/><attr format="color" name="fghBackColor"/><attr format="color" name="fghLeftColor"/><attr format="color" name="fghMiddleColor"/><attr format="color" name="fghRightColor"/><attr format="string" name="fghTextLoading"/><attr format="string" name="fghTextLoadingFinished"/><attr format="string" name="fghTextLoadingFailed"/><attr format="string" name="fghTextGameOver"/></declare-styleable>
+    <declare-styleable name="MaterialHeader"><attr format="color" name="mhPrimaryColor"/><attr format="color" name="mhShadowColor"/><attr format="dimension" name="mhShadowRadius"/><attr format="boolean" name="mhShowBezierWave"/></declare-styleable>
+    <declare-styleable name="MountainSceneView"><attr format="color" name="msvPrimaryColor"/><attr format="dimension" name="msvViewportHeight"/></declare-styleable>
+    <declare-styleable name="PhoenixHeader"><attr format="color" name="phPrimaryColor"/><attr format="color" name="phAccentColor"/></declare-styleable>
+    <declare-styleable name="SmartRefreshLayout"><attr name="srlPrimaryColor"/><attr name="srlAccentColor"/><attr format="integer" name="srlReboundDuration"/><attr format="dimension" name="srlHeaderHeight"/><attr format="dimension" name="srlFooterHeight"/><attr format="dimension" name="srlHeaderInsetStart"/><attr format="dimension" name="srlFooterInsetStart"/><attr format="float" name="srlDragRate"/><attr format="float" name="srlHeaderMaxDragRate"/><attr format="float" name="srlFooterMaxDragRate"/><attr format="float" name="srlHeaderTriggerRate"/><attr format="float" name="srlFooterTriggerRate"/><attr format="boolean" name="srlEnableRefresh"/><attr format="boolean" name="srlEnableLoadMore"/><attr format="boolean" name="srlEnableHeaderTranslationContent"/><attr format="boolean" name="srlEnableFooterTranslationContent"/><attr format="reference" name="srlHeaderTranslationViewId"/><attr format="reference" name="srlFooterTranslationViewId"/><attr format="boolean" name="srlEnablePreviewInEditMode"/><attr format="boolean" name="srlEnableAutoLoadMore"/><attr format="boolean" name="srlEnableOverScrollBounce"/><attr format="boolean" name="srlEnablePureScrollMode"/><attr format="boolean" name="srlEnableNestedScrolling"/><attr format="boolean" name="srlEnableScrollContentWhenLoaded"/><attr format="boolean" name="srlEnableScrollContentWhenRefreshed"/><attr format="boolean" name="srlEnableLoadMoreWhenContentNotFull"/><attr format="boolean" name="srlEnableFooterFollowWhenLoadFinished"/><attr format="boolean" name="srlEnableFooterFollowWhenNoMoreData"/><attr format="boolean" name="srlEnableClipHeaderWhenFixedBehind"/><attr format="boolean" name="srlEnableClipFooterWhenFixedBehind"/><attr format="boolean" name="srlEnableOverScrollDrag"/><attr format="boolean" name="srlDisableContentWhenRefresh"/><attr format="boolean" name="srlDisableContentWhenLoading"/><attr format="reference" name="srlFixedHeaderViewId"/><attr format="reference" name="srlFixedFooterViewId"/></declare-styleable>
+    <declare-styleable name="SmartRefreshLayout_Layout"><attr name="layout_srlSpinnerStyle"/><attr format="color" name="layout_srlBackgroundColor"/></declare-styleable>
+    <declare-styleable name="StoreHouseHeader"><attr format="string" name="shhText"/><attr format="dimension" name="shhLineWidth"/><attr format="dimension" name="shhDropHeight"/><attr format="boolean" name="shhEnableFadeAnimation"/></declare-styleable>
+    <declare-styleable name="TaurusHeader"><attr format="color" name="thPrimaryColor"/></declare-styleable>
+    <declare-styleable name="TwoLevelHeader"><attr format="float" name="srlMaxRage"/><attr format="float" name="srlFloorRage"/><attr format="float" name="srlRefreshRage"/><attr format="integer" name="srlFloorDuration"/><attr format="boolean" name="srlEnableTwoLevel"/><attr format="boolean" name="srlEnablePullToCloseTwoLevel"/></declare-styleable>
+    <declare-styleable name="WaveSwipeHeader"><attr format="color" name="wshPrimaryColor"/><attr format="color" name="wshAccentColor"/><attr format="color" name="wshShadowColor"/><attr format="dimension" name="wshShadowRadius"/></declare-styleable>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <string name="action_settings">Settings</string>
+    <string name="app_name">调试软件</string>
+    <string name="fgh_mask_bottom">Scroll to move handle</string>
+    <string name="fgh_mask_top_pull">Pull To Break Out!</string>
+    <string name="fgh_mask_top_release">Release To Break Out!</string>
+    <string name="fgh_text_game_over">Game Over</string>
+    <string name="fgh_text_loading">Refreshing…</string>
+    <string name="fgh_text_loading_failed">Refreshing Failed</string>
+    <string name="fgh_text_loading_finish">Refreshing Finished</string>
+    <string name="hello_world">Hello world!</string>
+    <string formatted="false" name="srl_component_falsify">%s falsify area,\n Represents the height[%.1fdp] of drag at run time,\n It does not show anything.</string>
+    <string name="srl_content_empty">The content view in SmartRefreshLayout is empty. Do you forget to add it in xml layout file?</string>
+    <string name="srl_footer_failed">Load Failed</string>
+    <string name="srl_footer_finish">Load Success</string>
+    <string name="srl_footer_loading">Loading…</string>
+    <string name="srl_footer_nothing">No More Data</string>
+    <string name="srl_footer_pulling">Pull Up To Load More</string>
+    <string name="srl_footer_refreshing">Wait For Refreshing…</string>
+    <string name="srl_footer_release">Release To Load More</string>
+    <string name="srl_header_failed">Refresh Failed</string>
+    <string name="srl_header_finish">Refresh Success</string>
+    <string name="srl_header_loading">Loading…</string>
+    <string name="srl_header_pulling">Pull Down To Refresh</string>
+    <string name="srl_header_refreshing">Wait For Loading…</string>
+    <string name="srl_header_release">Release To Refresh</string>
+    <string name="srl_header_secondary">Release To Second Floor</string>
+    <string name="srl_header_update">\'Last Update\' M-d HH:mm</string>
+    <style name="AppBaseTheme" parent="android:Theme.Light">
+        <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        -->
+    </style>
+    <style name="AppTheme" parent="AppBaseTheme">
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    </style>
+    <style name="dialog" parent="@android:style/Theme.DeviceDefault.Light.Dialog">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+</resources>
