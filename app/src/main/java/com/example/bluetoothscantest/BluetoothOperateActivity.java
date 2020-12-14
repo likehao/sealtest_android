@@ -655,7 +655,7 @@ public class BluetoothOperateActivity extends Activity implements View.OnClickLi
             if (bytes != null) {
                 //判断是否分包
                 sendDataToBlue(bytes);
-            /*    if (bytes.length <= 20) {
+      /*          if (bytes.length <= 20) {
                 }
                 //要分包发送
                 else {
